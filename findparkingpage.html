@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Find My Parking</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="logo.css"> <!-- Link the logo.css file -->
+    <!-- Google Maps API -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC4wEOeKtBWKLg_27DyC_Oo7VNezJm9sE4&libraries=places&callback=initMap" async defer></script>
+</head>
+<body>
+    <div id="container">
+        <div id="logo"></div>
+        <!-- Navigate to the find parking page -->
+        <button onclick="goToNewPage()">Home</button>
+    </div>
+
+    <div id="map"></div>
+
+    <script src="findmyparking.js"></script>
+    <script>
+        function goToNewPage() {
+            // Path to findparkingpage.html
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+</html>
