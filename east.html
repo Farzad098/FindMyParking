@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Find My Parking - North London</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="logo.css"> <!-- Link the logo.css file -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@100;300&display=swap">
+</head>
+<body>
+    <div id="container">
+        <div id="logo"></div>
+        <!-- Navigate to the find parking page -->
+        <div class="button-container">
+            <button onclick="goToHomePage()">Home</button>
+            <button onclick="goToNewPage()">Find Parking</button>
+        </div>
+        <h2 class="section-header">Parking in East London</h2>
+    </div>
+
+    <div id="map"></div>
+
+    <script>
+        function goToHomePage() {
+            // Path to index.html
+            window.location.href = 'index.html';
+        }
+
+        function goToNewPage() {
+            // Path to findparkingpage.html
+            window.location.href = 'findparkingpage.html';
+        }
+    </script>
+
+</body>
+</html>

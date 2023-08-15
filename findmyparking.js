@@ -1,7 +1,6 @@
 function initMap() {
     // Check if the browser supports geolocation
     if (navigator.geolocation) {
-        // Get the user's current position
         navigator.geolocation.getCurrentPosition(
             function(position) {
                 const userLocation = {
