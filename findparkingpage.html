@@ -10,17 +10,38 @@
 <body>
     <div id="container">
         <div id="logo"></div>
-        <!-- Navigate to the find parking page -->
+        <!-- Navigate to homepage -->
         <button onclick="goToNewPage()">Home</button>
     </div>
 
     <div id="map"></div>
 
+    <!-- Dropdown menu -->
+    <div id="dropdown-container">
+        <label for="direction">Select Where You Would Like to Find Parking</label>
+        <select id="direction" name="direction">
+            <option value="north">North</option>
+            <option value="east">East</option>
+            <option value="south">South</option>
+            <option value="west">West</option>
+        </select>
+        <button class="search-button" onclick="navigateToDirection()">Show Me Parking</button>
+
+    </div>
+
     <script src="findmyparking.js"></script>
     <script>
         function goToNewPage() {
-            // Path to findparkingpage.html
+            // Path to index.html
             window.location.href = 'index.html';
+        }
+
+        function navigateToDirection() {
+            // Get the selected value from the dropdown
+            var selectedDirection = document.getElementById('direction').value;
+            
+            // Redirect based on the selected direction
+            window.location.href = selectedDirection + '.html';
         }
     </script>
 </body>
