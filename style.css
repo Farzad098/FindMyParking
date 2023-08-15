@@ -139,6 +139,55 @@ button:hover {
 .section-header {
   font-family: 'Archivo', sans-serif;
   font-weight: 300;
-  font-size: 24px; 
+  font-size: 24px;
   text-align: center;
+  margin-top: 20px;
+}
+
+.boxes-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.box {
+  width: calc(15% - 20px);
+  padding: 15px;
+  margin: 25px;
+  background-color: #79B1BF;
+  border: 1px solid #79B1BF;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.box:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+.box p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.6;
+  color: white;
+}
+
+.box {
+  position: relative; 
+}
+
+.direction-button {
+  position: absolute; 
+  bottom: -17px; 
+  left: 45%; 
+  transform: translateX(-30%); 
+  display: inline-block;
+  padding: 3px 7px;
+  background-color: #a5ecd7;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
