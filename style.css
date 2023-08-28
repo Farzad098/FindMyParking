@@ -208,3 +208,25 @@ button:hover {
   border-radius: 5px;
   cursor: pointer;
 }
+
+.login-button {
+  padding: 10px 20px;
+  border-radius: 20px;
+  background-color: #a5ecd7; /* Different color for the Login button */
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.login-button:hover {
+  background-color: #0026ff; 
+}
+
+/* Position the Login button on the top right */
+#login-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}

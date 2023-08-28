@@ -13,6 +13,11 @@
         Your browser does not support the video tag.
     </video>
 
+    <!-- New Login Button -->
+    <div id="login-button">
+        <button class="login-button" onclick="goToLoginPage()">Login</button>
+    </div>
+
     <div id="container">
         <div id="logo"></div>
         <button onclick="goToNewPage()">Find Parking</button>
@@ -25,6 +30,11 @@
     <script>
         function goToNewPage() {
             window.location.href = 'findparkingpage.html';
+        }
+    </script>
+    <script>
+        function goToLoginPage() {
+            window.location.href = 'login.html';
         }
     </script>
 </body>
