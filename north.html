@@ -1,174 +1,155 @@
 <!DOCTYPE html>
 <html lang="en">
-    
-<head>
-    <title>Find My Parking - North London</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="logo.css"> <!-- Link the logo.css file -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@100;300&display=swap">
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC4wEOeKtBWKLg_27DyC_Oo7VNezJm9sE4&callback=initMap" async defer></script>
-</head>
-<body>
-    <video autoplay loop muted id="video-background">
-        <source src="bg.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
-    <div id="container">
-        <div id="logo"></div>
-        <!-- Navigate to the find parking page -->
-        <div class="button-container">
-            <button onclick="goToHomePage()">Home</button>
-            <button onclick="goToNewPage()">Find Parking</button>
+
+    <head>
+        <title>Find My Parking - North London</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="logo.css"> <!-- Link the logo.css file -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@100;300&display=swap">
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC4wEOeKtBWKLg_27DyC_Oo7VNezJm9sE4&callback=initMap" async defer></script>
+    </head>
+
+    <body>
+        <video autoplay loop muted id="video-background">
+            <source src="bg.mp4" type="video/mp4"> Your browser does not support the video tag.
+        </video>
+        <div id="container">
+            <div id="user-container">
+                <span id="user-greeting">Hi, <a href="profile.html" id="username"></a></span>
+                <a href="#" id="logout-link">Logout</a>
+            </div>
+            <div id="auth-links">
+                <a href="login.html">Login</a>
+                <a href="signup.html">Signup</a>
+            </div>
+            <div id="logo"></div>
+            <!-- Navigate to the find parking page -->
+            <div class="button-container">
+                <button onclick="goToHomePage()">Home</button>
+                <button onclick="goToNewPage()">Find Parking</button>
+            </div>
+            <h2 class="section-header">Parking in North London</h2>
         </div>
-        <h2 class="section-header">Parking in North London</h2>
-    </div>
-    <!-- Adding the map container -->
+
+        <!-- Adding the map container -->
     <div id="map"></div>
-    
-    <!-- Adding the parking information in rows -->
-    <div class="parking-rows">
-        <div class="parking-info">
-            
-        </div>
-        
-    </div>
 
-    <!-- Adding the boxes -->
-    <div class="boxes-container">
-        <div class="box">
-            <p>Lomax CarPark Corp Ltd<br>
-                Curnock Estate<br>
-                38-40 Pratt Street<br>
-                London Borough of Camden<br>
-                London<br>
-                NW1 0LY<br><br>
-                
-                +44 20 7388 4656</p>
-                <a href="https://www.google.com/maps/dir//Curnock+Estate38-40+Pratt+StreetLondon+Borough+of+CamdenLondonNW1+0LY/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x48761b1fa502d609:0x1f4e537d9d005dcf?sa=X&ved=2ahUKEwjjgOL76t-AAxUWgf0HHbOTBXAQ9Rd6BAhPEAA&ved=2ahUKEwjjgOL76t-AAxUWgf0HHbOTBXAQ9Rd6BAhSEAQ" class="direction-button">Directions</a>
+        <!-- Adding the parking information in rows -->
+        <div class="parking-rows">
+            <div class="parking-info">
+            </div>
         </div>
-        <div class="box">
-            <p>King's Cross Business Partnership Limited<br>
-                Handyside<br>
-                3 Canal Reach<br>
-                London Borough of Camden<br>
-                London<br>
-                N1C 4BA<br><br>
-                
-                +44 20 3479 1795</p>
-                <a href="https://www.google.com/maps/place/Handyside+Car+Park/@51.5378582,-0.1305625,17z/data=!3m1!4b1!4m6!3m5!1s0x48761b17911750e9:0x3f84a2cfc7679ccf!8m2!3d51.5378549!4d-0.1279822!16s%2Fg%2F11dxq5nnb5?entry=ttu" class="direction-button">Directions</a>
+        <!-- Adding the boxes -->
+        <div class="boxes-container">
+            <div class="box">
+                <p>Lomax CarPark Corp Ltd<br> Curnock Estate<br> 38-40 Pratt Street<br> London Borough of Camden<br>
+                    London<br> NW1 0LY<br><br> +44 20 7388 4656</p>
+                <a href="https://www.google.com/maps/dir//Curnock+Estate38-40+Pratt+StreetLondon+Borough+of+CamdenLondonNW1+0LY/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x48761b1fa502d609:0x1f4e537d9d005dcf?sa=X&ved=2ahUKEwjjgOL76t-AAxUWgf0HHbOTBXAQ9Rd6BAhPEAA&ved=2ahUKEwjjgOL76t-AAxUWgf0HHbOTBXAQ9Rd6BAhSEAQ"
+                    class="direction-button">Directions</a>
+            </div>
+            <div class="box">
+                <p>King's Cross Business Partnership Limited<br> Handyside<br> 3 Canal Reach<br> London Borough of
+                    Camden<br> London<br> N1C 4BA<br><br> +44 20 3479 1795</p>
+                <a href="https://www.google.com/maps/place/Handyside+Car+Park/@51.5378582,-0.1305625,17z/data=!3m1!4b1!4m6!3m5!1s0x48761b17911750e9:0x3f84a2cfc7679ccf!8m2!3d51.5378549!4d-0.1279822!16s%2Fg%2F11dxq5nnb5?entry=ttu"
+                    class="direction-button">Directions</a>
+            </div>
+            <div class="box">
+                <p>Lomax CarPark Corp Ltd<br> George Mews<br> North Gower Street<br> London Borough of Camden<br>
+                    London<br> NW1 2EU<br><br> +44 20 7383 0001</p>
+                <a href="https://www.google.com/maps/dir//George+Mews+%26+North+Gower+Street,+London+NW1+2NR/@51.5378582,-0.1305625,17z/data=!4m9!4m8!1m0!1m5!1m1!1s0x48761b2652a2de43:0xeee7366965d37780!2m2!1d-0.1379886!2d51.5274561!3e0?entry=ttu"
+                    class="direction-button">Directions</a>
+            </div>
+            <div class="box">
+                <p>Lomax CarPark Corp Ltd<br> Bucklebury<br> Laxton Place<br> London Borough of Camden<br> London<br>
+                    NW1 3PT<br><br> +44 20 7383 5888</p>
+                <a href="https://www.google.com/maps/dir//Bucklebury+Car+Park,+Laxton+Pl,+London+NW1+3PT/@51.5263757,-0.1828788,13z/data=!4m9!4m8!1m0!1m5!1m1!1s0x48761b2fb64917e9:0x25a3e39b03c2c740!2m2!1d-0.1415937!2d51.5263295!3e0?entry=ttu"
+                    class="direction-button">Directions</a>
+            </div>
+            <div class="box">
+                <p>Euro Car Parks Limited<br> Sainsbury's<br> 12 Hawley Crescent<br> London Borough of Camden<br>
+                    London<br> NW1 9LJ<br><br> +44 20 7482 3828</p>
+                <a href="https://www.google.com/maps/dir//Sainsbury's+12+Hawley+Crescent+London+Borough+of+Camden+London+NW1+9LJ/@51.5371545,-0.2261433,12z/data=!4m2!4m1!3e0?entry=ttu"
+                    class="direction-button">Directions</a>
+            </div>
+            <div class="box">
+                <p>NCP<br> St Pancras International<br> Euston Road<br> London Borough of Camden<br> London<br> N1C
+                    4QP<br><br> +44 333 320 3411</p>
+                <a href="https://www.google.com/maps/dir//St+Pancras+International,+Euston+Rd.,+London+N1C+4QP/@51.5314732,-0.1674182,13z/data=!4m9!4m8!1m0!1m5!1m1!1s0x48761b3b8d98ed25:0xb92d6fcfa832dd12!2m2!1d-0.126133!2d51.531427!3e0?entry=ttu"
+                    class="direction-button">Directions</a>
+            </div>
+            <div class="box">
+                <p>Regent's University London<br> Regent's University London<br> Inner Circle<br> City of
+                    Westminster<br> London<br> NW1 4NS<br><br> +44 20 7487 7500</p>
+                <a href="https://www.google.com/maps/dir//Regent's+University+London+Inner+Circle+City+of+Westminster+London+NW1+4NS/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x48761ad26cbc5e13:0x5ebd801378fd6093?sa=X&ved=2ahUKEwj49PPk6t-AAxX27LsIHXjUBIkQ9Rd6BAhOEAA&ved=2ahUKEwj49PPk6t-AAxX27LsIHXjUBIkQ9Rd6BAhcEAU"
+                    class="direction-button">Directions</a>
+            </div>
+            <div class="box">
+                <p>NCP<br> Marylebone Road<br> 170 Marylebone Road<br> City of Westminster<br> London<br> NW1
+                    5AR<br><br> +44 345 050 7080</p>
+                <a href="https://www.google.com/maps/dir//NCP+London+Marylebone+Road+Car+Park/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x48761ac90cc51b4f:0x568bd764ec7ba1f4?sa=X&ved=2ahUKEwjN9cGR69-AAxUigf0HHRc5DqsQ9Rd6BAhcEAA&ved=2ahUKEwjN9cGR69-AAxUigf0HHRc5DqsQ9Rd6BAhiEAQ"
+                    class="direction-button">Directions</a>
+            </div>
+            <div class="box">
+                <p>City of London<br> Hampstead Heath - Parliament Hill Lido<br> Gordon House Road<br> London Borough of
+                    Camden<br> London<br> NW5 1LY<br><br> +44 20 7332 3773</p>
+                <a href="https://www.google.com/maps/dir//Hampstead+Heath+-+Parliament+Hill+LidoGordon+House+RoadLondon+Borough+of+CamdenLondonNW5+1LY/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x48761af872f94713:0x465e5063e42450fd?sa=X&ved=2ahUKEwjBrqSa69-AAxU5h_0HHbP6BZwQ9Rd6BAhlEAA&ved=2ahUKEwjBrqSa69-AAxU5h_0HHbP6BZwQ9Rd6BAhxEAU"
+                    class="direction-button">Directions</a>
+            </div>
+            <div class="box">
+                <p>Euro Car Parks Limited<br> Sainsbury's<br> 31 - 41 Liverpool Road<br> London Borough of Islington<br>
+                    London<br> N1 0RW<br><br> +44 20 7278 1789</p>
+                <a href="https://www.google.com/maps/dir//Sainsbury's31+-+41+Liverpool+RoadLondon+Borough+of+IslingtonLondonN1+0RW/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x48761b42c2a1752f:0x77dece9e15eee48?sa=X&ved=2ahUKEwj15cak69-AAxWAhf0HHRLcCSUQ9Rd6BAhbEAA&ved=2ahUKEwj15cak69-AAxWAhf0HHRLcCSUQ9Rd6BAhkEAQ"
+                    class="direction-button">Directions</a>
+            </div>
+            <div class="box">
+                <p>Q-Park<br> St John's Wood<br> 30 Kingsmill Terrace<br> City of Westminster<br> London<br> NW8
+                    6AA<br><br> +44 113 238 4200</p>
+                <a href="https://www.google.com/maps/dir//30+Kingsmill+Terrace,+London+NW8+6BJ/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x48761abda0b0ee67:0x216b5f2dde15551a?sa=X&ved=2ahUKEwiW5NKt69-AAxV-gf0HHTTaCbYQwwV6BAgVEAA&ved=2ahUKEwiW5NKt69-AAxV-gf0HHTTaCbYQwwV6BAgbEAQ"
+                    class="direction-button">Directions</a>
+            </div>
+            <div class="box">
+                <p>Parking Charge Ltd<br> Regency<br> 97 Avenue Road<br> London Borough of Camden<br> London<br> NW3
+                    5EG<br><br> +44 333 577 0133</p>
+                <a href="https://www.google.com/maps/dir//Regency97+Avenue+RoadLondon+Borough+of+CamdenLondonNW3+5EG/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x48761a90dd62e28b:0x6b55d2c3aa2dd85e?sa=X&ved=2ahUKEwiphOC269-AAxXzgv0HHUyXAz4Q9Rd6BAhTEAA&ved=2ahUKEwiphOC269-AAxXzgv0HHUyXAz4Q9Rd6BAhYEAU"
+                    class="direction-button">Directions</a>
+            </div>
+            <div class="box">
+                <p>Excel Parking Services Ltd<br> Iceland<br> 62-64 Chapel Market<br> London Borough of Islington<br>
+                    London<br> N1 9ER<br><br> +44 20 7837 5562</p>
+                <a href="https://www.google.com/maps/dir//Iceland62-64+Chapel+MarketLondon+Borough+of+IslingtonLondonN1+9ER/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x48761b425551b40d:0x19354fe8cc9ae39c?sa=X&ved=2ahUKEwiNgrm_69-AAxWAg_0HHbMSBDwQ9Rd6BAhcEAA&ved=2ahUKEwiNgrm_69-AAxWAg_0HHbMSBDwQ9Rd6BAhlEAQ"
+                    class="direction-button">Directions</a>
+            </div>
+            <div class="box">
+                <p>GroupNexus Limited<br> Angel Central<br> 21 Parkfield Street<br> London Borough of Islington<br>
+                    London<br> N1 0PS<br><br> +44 20 7359 2674</p>
+                <a href="https://www.google.com/maps/dir//Angel+Central21+Parkfield+StreetLondon+Borough+of+IslingtonLondonN1+0PS/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x48761b4186b1a2af:0x61b2f1c22f9fc234?sa=X&ved=2ahUKEwi3--fH69-AAxWmhf0HHfylARYQ9Rd6BAhTEAA&ved=2ahUKEwi3--fH69-AAxWmhf0HHfylARYQ9Rd6BAhmEAQ"
+                    class="direction-button">Directions</a>
+            </div>
+            <div class="box">
+                <p>Business Design Centre Ltd<br> Upper Street<br> 55 Upper Street<br> London Borough of Islington<br>
+                    London<br> N1 0PW<br><br> +44 20 7288 6718</p>
+                <a href="https://www.google.com/maps?opi=89978449&client=opera-gx&lqi=CkVVcHBlciBTdHJlZXQ1NSBVcHBlciBTdHJlZXQgTG9uZG9uIEJvcm91Z2ggb2YgSXNsaW5ndG9uIExvbmRvbiBOMSAwUFdIuOfFhI-tgIAIWlsQABABGAAYAhgDGAQYBxgIGAkYCiJFdXBwZXIgc3RyZWV0NTUgdXBwZXIgc3RyZWV0IGxvbmRvbiBib3JvdWdoIG9mIGlzbGluZ3RvbiBsb25kb24gbjEgMHB3kgELcGFya2luZ19sb3Q&vet=12ahUKEwjkkv3Q69-AAxUNh_0HHW4TCQMQ1YkKegQIJBAB..i&cs=1&um=1&ie=UTF-8&fb=1&gl=uk&sa=X&geocode=KU0Ufl5dG3ZIMfNr4-fK3Xuq&daddr=52+Upper+St,+London+N1+0PW"
+                    class="direction-button">Directions</a>
+            </div>
+            <div class="box">
+                <p>Q-Park<br> Church Street<br> 10 Penfold Street<br> City of Westminster<br> London<br> NW8 8BG<br><br>
+                    +44 870 442 0104</p>
+                <a href="https://www.google.com/maps/dir/?api=1&destination=51.522172,-0.170347"
+                    class="direction-button">Directions</a>
+            </div>
+            <div class="box">
+                <p>CitiPark<br> Bell Street<br> 24 Bell Street<br> City of Westminster<br> London<br> NW1 5BZ<br><br>
+                    +44 333 344 4939</p>
+                <a href="https://www.google.com/maps/dir//24+Bell+St,+London+NW1+5BY/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x48761ab6afa647e7:0xbcd8e466acf4b659?sa=X&ved=2ahUKEwjU083269-AAxUigv0HHb4HAMgQwwV6BAgREAA&ved=2ahUKEwjU083269-AAxUigv0HHb4HAMgQwwV6BAgTEAQ"
+                    class="direction-button">Directions</a>
+            </div>
+            <div class="box">
+                <p>My Car Parks Limited<br> Elia Mews<br> 40 Elia Street<br> London Borough of Islington<br> London<br>
+                    N1 8DG<br><br> +44 20 7430 9371</p>
+                <a href="https://www.google.com/maps/dir//40+Elia+Mews,+London+N1+8DA/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x48761b5c6689acdb:0xe77563fc856a2034?sa=X&ved=2ahUKEwijl8f_69-AAxWWgP0HHfqbDm4QwwV6BAgREAA&ved=2ahUKEwijl8f_69-AAxWWgP0HHfqbDm4QwwV6BAgaEAQ"
+                    class="direction-button">Directions</a>
+            </div>
         </div>
-        <div class="box">
-            <p>Lomax CarPark Corp Ltd<br>
-                George Mews<br>
-                North Gower Street<br>
-                London Borough of Camden<br>
-                London<br>
-                NW1 2EU<br><br>
-                
-                +44 20 7383 0001</p>
-                <a href="https://www.google.com/maps/dir//George+Mews+%26+North+Gower+Street,+London+NW1+2NR/@51.5378582,-0.1305625,17z/data=!4m9!4m8!1m0!1m5!1m1!1s0x48761b2652a2de43:0xeee7366965d37780!2m2!1d-0.1379886!2d51.5274561!3e0?entry=ttu" class="direction-button">Directions</a>
-        </div>
-        <div class="box">
-            <p>Lomax CarPark Corp Ltd<br>
-                Bucklebury<br>
-                Laxton Place<br>
-                London Borough of Camden<br>
-                London<br>
-                NW1 3PT<br><br>
-                
-                +44 20 7383 5888</p>
-                <a href="https://www.google.com/maps/dir//Bucklebury+Car+Park,+Laxton+Pl,+London+NW1+3PT/@51.5263757,-0.1828788,13z/data=!4m9!4m8!1m0!1m5!1m1!1s0x48761b2fb64917e9:0x25a3e39b03c2c740!2m2!1d-0.1415937!2d51.5263295!3e0?entry=ttu" class="direction-button">Directions</a>
-        </div>
-        <div class="box">
-            <p>Euro Car Parks Limited<br>
-                Sainsbury's<br>
-                12 Hawley Crescent<br>
-                London Borough of Camden<br>
-                London<br>
-                NW1 9LJ<br><br>
-                
-                +44 20 7482 3828</p>
-                <a href="https://www.google.com/maps/dir//Sainsbury's+12+Hawley+Crescent+London+Borough+of+Camden+London+NW1+9LJ/@51.5371545,-0.2261433,12z/data=!4m2!4m1!3e0?entry=ttu" class="direction-button">Directions</a>
-        </div>
-        <div class="box">
-            <p>NCP<br>
-                St Pancras International<br>
-                Euston Road<br>
-                London Borough of Camden<br>
-                London<br>
-                N1C 4QP<br><br>
-                
-                +44 333 320 3411</p>
-                <a href="https://www.google.com/maps/dir//St+Pancras+International,+Euston+Rd.,+London+N1C+4QP/@51.5314732,-0.1674182,13z/data=!4m9!4m8!1m0!1m5!1m1!1s0x48761b3b8d98ed25:0xb92d6fcfa832dd12!2m2!1d-0.126133!2d51.531427!3e0?entry=ttu" class="direction-button">Directions</a>
-        </div>
-        <div class="box">
-            <p>Regent's University London<br>
-                Regent's University London<br>
-                Inner Circle<br>
-                City of Westminster<br>
-                London<br>
-                NW1 4NS<br><br>
-                
-                +44 20 7487 7500</p>
-                <a href="https://www.google.com/maps/dir//Regent's+University+London+Inner+Circle+City+of+Westminster+London+NW1+4NS/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x48761ad26cbc5e13:0x5ebd801378fd6093?sa=X&ved=2ahUKEwj49PPk6t-AAxX27LsIHXjUBIkQ9Rd6BAhOEAA&ved=2ahUKEwj49PPk6t-AAxX27LsIHXjUBIkQ9Rd6BAhcEAU" class="direction-button">Directions</a>
-        </div>
-        <div class="box">
-            <p>NCP<br>
-                Marylebone Road<br>
-                170 Marylebone Road<br>
-                City of Westminster<br>
-                London<br>
-                NW1 5AR<br><br>
-                
-                +44 345 050 7080</p>
-                <a href="https://www.google.com/maps/dir//NCP+London+Marylebone+Road+Car+Park/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x48761ac90cc51b4f:0x568bd764ec7ba1f4?sa=X&ved=2ahUKEwjN9cGR69-AAxUigf0HHRc5DqsQ9Rd6BAhcEAA&ved=2ahUKEwjN9cGR69-AAxUigf0HHRc5DqsQ9Rd6BAhiEAQ" class="direction-button">Directions</a>
-        </div>
-        <div class="box">
-            <p>City of London<br>
-                Hampstead Heath - Parliament Hill Lido<br>
-                Gordon House Road<br>
-                London Borough of Camden<br>
-                London<br>
-                NW5 1LY<br><br>
-                
-                +44 20 7332 3773</p>
-                <a href="https://www.google.com/maps/dir//Hampstead+Heath+-+Parliament+Hill+LidoGordon+House+RoadLondon+Borough+of+CamdenLondonNW5+1LY/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x48761af872f94713:0x465e5063e42450fd?sa=X&ved=2ahUKEwjBrqSa69-AAxU5h_0HHbP6BZwQ9Rd6BAhlEAA&ved=2ahUKEwjBrqSa69-AAxU5h_0HHbP6BZwQ9Rd6BAhxEAU" class="direction-button">Directions</a>
-        </div>
-        <div class="box">
-            <p>Euro Car Parks Limited<br>
-                Sainsbury's<br>
-                31 - 41 Liverpool Road<br>
-                London Borough of Islington<br>
-                London<br>
-                N1 0RW<br><br>
-                
-                +44 20 7278 1789</p>
-                <a href="https://www.google.com/maps/dir//Sainsbury's31+-+41+Liverpool+RoadLondon+Borough+of+IslingtonLondonN1+0RW/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x48761b42c2a1752f:0x77dece9e15eee48?sa=X&ved=2ahUKEwj15cak69-AAxWAhf0HHRLcCSUQ9Rd6BAhbEAA&ved=2ahUKEwj15cak69-AAxWAhf0HHRLcCSUQ9Rd6BAhkEAQ" class="direction-button">Directions</a>
-        </div>
-        <div class="box">
-            <p>Q-Park<br>
-                St John's Wood<br>
-                30 Kingsmill Terrace<br>
-                City of Westminster<br>
-                London<br>
-                NW8 6AA<br><br>
-                
-                +44 113 238 4200</p>
-                <a href="https://www.google.com/maps/dir//30+Kingsmill+Terrace,+London+NW8+6BJ/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x48761abda0b0ee67:0x216b5f2dde15551a?sa=X&ved=2ahUKEwiW5NKt69-AAxV-gf0HHTTaCbYQwwV6BAgVEAA&ved=2ahUKEwiW5NKt69-AAxV-gf0HHTTaCbYQwwV6BAgbEAQ" class="direction-button">Directions</a>
-        </div>
-        <div class="box">
-            <p>Parking Charge Ltd<br>
-                Regency<br>
-                97 Avenue Road<br>
-                London Borough of Camden<br>
-                London<br>
-                NW3 5EG<br><br>
-                
-                +44 333 577 0133</p>
-                <a href="https://www.google.com/maps/dir//Regency97+Avenue+RoadLondon+Borough+of+CamdenLondonNW3+5EG/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x48761a90dd62e28b:0x6b55d2c3aa2dd85e?sa=X&ved=2ahUKEwiphOC269-AAxXzgv0HHUyXAz4Q9Rd6BAhTEAA&ved=2ahUKEwiphOC269-AAxXzgv0HHUyXAz4Q9Rd6BAhYEAU" class="direction-button">Directions</a>
-        </div>
-        
-
         <script>
             // Function to initialize the Google Map
             function initMap() {
@@ -260,15 +241,17 @@
                     });
                 }
             }
-        function goToHomePage() {
-            // Path to index.html
-            window.location.href = 'index.html';
-        }
+            function goToHomePage() {
+                // Path to index.html
+                window.location.href = 'index.html';
+            }
 
-        function goToNewPage() {
-            // Path to findparkingpage.html
-            window.location.href = 'findparkingpage.html';
-        }
-    </script>
-</body>
+            function goToNewPage() {
+                // Path to findparkingpage.html
+                window.location.href = 'findparkingpage.html';
+            }
+        </script>
+        <script src="./main.js"></script>
+    </body>
+
 </html>

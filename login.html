@@ -1,33 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <title>Find My Parking - Login Page</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="logo.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@100;300&display=swap">
-</head>
-<body>
-    <video autoplay loop muted id="video-background">
-        <source src="bg.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
-    <div id="container">
-        <div id="logo"></div>
-        <div class="button-container">
-            <button onclick="goToHomePage()">Home</button>
-            <button onclick="goToNewPage()">Find Parking</button>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Find My Parking</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="logo.css">
+    </head>
+
+    <body>
+        <div class="form-container">
+            <form id="login-form" action="/login" method="post">
+                <h2>Login</h2>
+                <div class="input-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <p>Not registered yet? <a href="signup.html">Signup Here</a></p>
+                <button type="submit" class="form-button">Login</button>
+                <div id="message-container"></div>
+            </form>
         </div>
-        <h2 class="section-header">Login / Sign Up</h2>
-    </div>
-
+        <script>
+            function goToNewPage() {
+                window.location.href = 'findparkingpage.html';
+            }
+        </script>
+        <script src="./main.js"></script>
+    </body>
     <script>
-        function goToHomePage() {
-            window.location.href = 'index.html';
-        }
+        document.getElementById('login-form').addEventListener('submit', function (event) {
+            event.preventDefault();
 
-        function goToNewPage() {
-            window.location.href = 'findparkingpage.html';
-        }
+            const formData = new FormData(this);
+            const xhr = new XMLHttpRequest();
+
+            xhr.open('POST', '/login', true);
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === XMLHttpRequest.DONE) {
+                    if (xhr.status === 200) {
+                        const response = JSON.parse(xhr.responseText);
+                        if (response.success) {
+                            document.getElementById('message-container').innerHTML = '<div style="font-weight: bold; color: green;">Success: Login successful.</div>';
+
+                            // Store all user data in sessionStorage as an object
+                            sessionStorage.setItem('userData', JSON.stringify(response.userData));
+
+                            console.log(response.userData);
+                            window.location = "index.html";
+                        } else {
+                            document.getElementById('message-container').innerHTML = '<div style="font-weight: bold; color: red;">Error: ' + xhr.responseText + '</div>';
+                        }
+                    } else if (xhr.status === 401) {
+                        document.getElementById('message-container').innerHTML = '<div style="font-weight: bold; color: red;">Error: ' + xhr.responseText + '</div>';
+                    } else {
+                        document.getElementById('message-container').innerHTML = '<div style="font-weight: bold; color: red;">An error occurred.</div>';
+                    }
+                }
+            };
+
+            xhr.send(new URLSearchParams(formData));
+        });
     </script>
-</body>
+
 </html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>User Profile</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+        <div class="profile-container">
+            <h1>User Profile</h1>
+            <table class="profile-table">
+                <tr>
+                    <th>Name</th>
+                    <td id="profile-name"></td>
+                </tr>
+                <tr>
+                    <th>Email</th>
+                    <td id="profile-email"></td>
+                </tr>
+            </table>
+            <button id="logout-button">Logout</button>
+        </div>
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const profileName = document.getElementById("profile-name");
+                const profileEmail = document.getElementById("profile-email");
+                const logoutButton = document.getElementById("logout-button");
+
+                const storedUserData = sessionStorage.getItem("userData");
+                const userData = JSON.parse(storedUserData);
+
+                if (userData) {
+                    profileName.textContent = userData.name;
+                    profileEmail.textContent = userData.email;
+                } else {
+                    // Redirect to login page or handle no user data scenario
+                    console.error("User data not found in sessionStorage.");
+                }
+
+                logoutButton.addEventListener("click", function () {
+                    sessionStorage.removeItem("userData");
+                    window.location.href = "login.html"; // Redirect to login page
+                });
+            });
+        </script>
+    </body>
+
+</html>

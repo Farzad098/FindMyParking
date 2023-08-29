@@ -14,6 +14,15 @@
         Your browser does not support the video tag.
     </video>
     <div id="container">
+                <div id="user-container">
+            <span id="user-greeting">Hi, <a href="profile.html" id="username"></a></span>
+                <a href="#" id="logout-link">Logout</a>
+            </div>
+            <div id="auth-links">
+                <a href="login.html">Login</a>
+                <a href="signup.html">Signup</a>
+            </div>
+            
         <div id="logo"></div>
         <!-- Navigate to homepage -->
         <button onclick="goToNewPage()">Home</button>
@@ -50,5 +59,6 @@
             window.location.href = selectedDirection + '.html';
         }
     </script>
-</body>
+<script src="./main.js"></script>
+    </body>
 </html>
